@@ -31,20 +31,29 @@
 // 4) removeClickFromHoleWhereMoleWas
 
 $(setup);
-
+//Created a variable to use later
 let $holes = null;
-console.log($holes);
 
+//Within the setup fucntion I called and assigned hole class.
 function setup() {
   $holes = $('.hole');
+  console.log($holes);
+
   pickRandomHole();
 }
-
+//The bottom function will pick a random hole
 function pickRandomHole() {
-const hole = $holes[Math.floor(Math.random()*$holes.length)];
-addMoleToHole();
+  let hole = $holes[Math.floor(Math.random()*$holes.length)];
+
+  addMoleToHole(hole);
+}
+//Now I need to add a mole to the hole.
+function addMoleToHole(hole) {
+  const mole = $(hole).addClass('mole');
+
+  addClickToHoleWhereMoleIs(mole);
 }
 
-function addMoleToHole() {
+function addClickToHoleWhereMoleIs(mole) {
 
 }
