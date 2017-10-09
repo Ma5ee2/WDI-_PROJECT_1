@@ -58,11 +58,14 @@ function addMoleToHole(hole) {
 
 //Add a click event on the random mole.
 function addClickToHoleWhereMoleIs(mole) {
-  $(mole).on('click', () => {
+  $(mole).one('click', () => {
     if (true) {
-    //Remove the mole and make it randomly re-appear.
+    //Remove the mole.
       const removeMole = $(mole).removeClass('mole');
+      //Make it randomly re-appear.
       pickRandomHole();
+    } else {
+      return null;
     }
   });
 }
