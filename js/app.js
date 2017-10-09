@@ -1,27 +1,3 @@
-// $(() => {
-//   //Declare variables.
-//   const $holes = $('.hole');
-//   // let $score   = $('.score');
-//   // let $timer   = $('.timer');
-//   // const $start = $('.start');
-//
-//   // Declare the click event.
-//   // $holes.on('click', hole);
-//   //
-//   // function hole(e) {
-//   //   Remembers last hole clicked.
-//   //   const $clickedMole = $(e.target);
-//   //
-//   // }
-//   // Random mole in hole function.
-//
-//   function randomHole($holes) {
-//     const randomMole = Math.floor(Math.random() * $holes);
-//     const hole = $holes[randomHole];
-//     console.log(hole);
-//   }
-// });
-
 // 1) pickRandomHole
 // 2) addMoleToHole
 // 3) addClickToHoleWhereMoleIs
@@ -37,7 +13,6 @@ let $holes = null;
 //Within the setup fucntion I called and assigned hole class.
 function setup() {
   $holes = $('.hole');
-  console.log($holes);
 
   pickRandomHole();
 }
@@ -52,20 +27,25 @@ function pickRandomHole() {
 //Now I need to add a mole to the hole.
 function addMoleToHole(hole) {
   const mole = $(hole).addClass('mole');
-
+  //click event to shows random mole.
+  $(mole).one('click', addClickToHoleWhereMoleIs);
+  setTimeout(function() {
+    //removes class if not clicked.
+    $(mole).removeClass('mole');
+    $(mole).off('click');
+    //loops the game.
+    // pickRandomHole();
+  }, 800);
   addClickToHoleWhereMoleIs(mole);
 }
 
 //Add a click event on the random mole.
 function addClickToHoleWhereMoleIs(mole) {
   $(mole).one('click', () => {
-    if (true) {
-    //Remove the mole.
-      const removeMole = $(mole).removeClass('mole');
-      //Make it randomly re-appear.
-      pickRandomHole();
-    } else {
-      return null;
-    }
+    console.log('Im hit');
+    //Remove the click from hole.
+    const removeMole = $(mole).removeClass('mole');
+    //Make it randomly re-appear.
+    // pickRandomHole();
   });
 }
