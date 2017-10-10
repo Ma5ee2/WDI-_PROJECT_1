@@ -1,10 +1,11 @@
  * {
   box-sizing: border-box;
+  font-family: 'Modak', cursive;
+  font-size: 30px;
 }
 
 h1 {
   text-align: center;
-  margin-top: 50px;
 }
 
 .time-limit {
@@ -15,14 +16,17 @@ h1 {
 .score-board {
   text-align: center;
   padding: 50px;
+  margin: 0px;
 }
 
+button {
+  background-color: white;
+}
 .start {
   text-align: center;
   padding: 10px;
-  margin: 20px;
+  margin-top: 10px;
 }
-
 
 .grid {
   margin: auto;
@@ -30,6 +34,7 @@ h1 {
   width: 300px;
   background-color: black;
   border-radius: 20px;
+  background-color: white;
 }
 
 .hole {
@@ -37,10 +42,13 @@ h1 {
   float:left;
   width: 100px;
   height: 100px;
-  border: 1px solid red;
-  border-radius: 20px
+  border-radius: 20px;
+  border: 1px solid rgb(145, 115, 115);
 }
 
 .mole {
-  background-color: green;
+  background-color: rgb(145, 115, 115);
+  background-image: url('../images/trump.jpg');
+  background-repeat: none;
+  background-size: contain;
 }
