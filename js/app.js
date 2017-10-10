@@ -10,6 +10,7 @@ let $holes = null;
 let $score = null;
 let $timer = null;
 let $startButton = null;
+let $timeBoard = null;
 let scoreValue = 0;
 let timerLimit = 6;
 
@@ -21,12 +22,14 @@ console.log($holes);
 console.log($score);
   $timer = $('.timer');
 console.log($timer);
+  $timeBoard = $('.time-board');
   $startButton = ('.start');
   $($startButton).on('click', startGame);
 }
 
 function startGame() {
-  // make start button disappear
+  // make start button disappear.
+  reset();
   pickRandomHole();
 }
 
@@ -52,7 +55,7 @@ function addMoleToHole(hole) {
     if (timerLimit > 0) {
       pickRandomHole();
     } else {
-      console.log('game over');
+      $timeBoard.html('Game over');
       // make start button reappear
 
     }
@@ -79,4 +82,12 @@ function addClickToHoleWhereMoleIs(mole) {
     //Remove the click from hole.
     const removeMole = $(mole).removeClass('mole');
   });
+}
+
+function reset() {
+  scoreValue = 0;
+  timerLimit = 6;
+  $startButton = ('.start');
+  $timer = $('.timer');
+  $timeBoard = $('.time-board');
 }
