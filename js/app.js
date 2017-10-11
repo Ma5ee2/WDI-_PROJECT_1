@@ -16,11 +16,9 @@ function setup() {
 function checkForMole(e) {
   if ($(this).hasClass('mole')) {
     scoreValue++;
-    console.log(scoreValue);
     $score.html(scoreValue);
   } else {
     scoreValue--;
-    console.log("wasssup");
     $score.html(scoreValue);
   }
 }
@@ -33,7 +31,6 @@ function pickRandomHole() {
 
 function addMoleToHole(hole) {
   const mole = $(hole).addClass('mole');
-  console.log(mole);
   timeOut(mole);
 }
 
