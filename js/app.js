@@ -1,7 +1,7 @@
 $(setup);
 
 let scoreValue = 0;
-let timerLimit = 5;
+let timerLimit = 11;
 let $timeBoard;
 
 function setup() {
@@ -35,7 +35,7 @@ function addMoleToHole(hole) {
       $timeBoard.html('Game over');
       $('.start').show();
     }
-  }, 800);
+  }, 1000);
   addClickToHoleWhereMoleIs(mole);
 }
 
@@ -46,17 +46,21 @@ function time() {
 }
 
 function addClickToHoleWhereMoleIs(mole) {
-  $(mole).one('click', () => {
+  $(mole).on('click', () => {
     if (true) {
     scoreValue++;
     $score.html(scoreValue);
-    const removeMole = $(mole).removeClass('mole');
+  } else {
+    scoreValue--;
+    $score.html(scoreValue);
+    console.log(scoreValue);
+  }
   });
 }
 
 function reset() {
   scoreValue = 0;
-  timerLimit = 5;
+  timerLimit = 11;
   $timeBoard.html('Time: <span class="timer">15</span></div>');
   $timer = $('.timer');
   $score = $('.score');
