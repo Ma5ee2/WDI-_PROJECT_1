@@ -1,19 +1,8 @@
-// 1) pickRandomHole
-// 2) addMoleToHole
-// 3) addClickToHoleWhereMoleIs
-// 3) removeMoleFromHole
-// 4) removeClickFromHoleWhereMoleWas
-
 $(setup);
 //Created a variable to use later.
-let $holes = null;
-let $score = null;
-let $timer = null;
-let $startButton = null;
-let $timeBoard = null;
 let scoreValue = 0;
 let timerLimit = 6;
-
+let $timeBoard = $('.time-board');
 //Within the setup fucntion I called and assigned hole class.
 function setup() {
   $holes = $('.hole');
@@ -22,7 +11,6 @@ console.log($holes);
 console.log($score);
   $timer = $('.timer');
 console.log($timer);
-  $timeBoard = $('.time-board');
   $startButton = ('.start');
   $($startButton).on('click', startGame);
 }
@@ -57,10 +45,9 @@ function addMoleToHole(hole) {
     } else {
       $timeBoard.html('Game over');
       // make start button reappear
-
     }
+
   }, 1000);
-  // setIntervalBetweenRandomMole(mole);
   addClickToHoleWhereMoleIs(mole);
 }
 
@@ -87,7 +74,5 @@ function addClickToHoleWhereMoleIs(mole) {
 function reset() {
   scoreValue = 0;
   timerLimit = 6;
-  $startButton = ('.start');
-  $timer = $('.timer');
   $timeBoard = $('.time-board');
 }
