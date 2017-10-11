@@ -1,78 +1,63 @@
 $(setup);
-//Created a variable to use later.
+
 let scoreValue = 0;
-let timerLimit = 6;
-let $timeBoard = $('.time-board');
-//Within the setup fucntion I called and assigned hole class.
+let timerLimit = 5;
+let $timeBoard;
+
 function setup() {
   $holes = $('.hole');
-console.log($holes);
-  $score = $('.score');
-console.log($score);
-  $timer = $('.timer');
-console.log($timer);
+  $timeBoard = $('.time-board');
   $startButton = ('.start');
   $($startButton).on('click', startGame);
 }
 
 function startGame() {
-  // make start button disappear.
+  $('.start').hide();
   reset();
   pickRandomHole();
 }
 
-//The bottom function will pick a random hole.
 function pickRandomHole() {
-  const number = Math.floor(Math.random()*$holes.length);
-console.log(number);
+  const number = Math.floor(Math.random() * $holes.length)
   const hole = $holes[number];
-console.log(hole);
   addMoleToHole(hole);
 }
 
-//Now I need to add a mole to the hole.
 function addMoleToHole(hole) {
   const mole = $(hole).addClass('mole');
   time();
-  //Timeout function removes class and click event.
   setTimeout(function() {
-    //removes class if not clicked.
     $(mole).removeClass('mole');
-    //removes click event.
     $(mole).off('click');
     if (timerLimit > 0) {
       pickRandomHole();
     } else {
       $timeBoard.html('Game over');
-      // make start button reappear
+      $('.start').show();
     }
-
-  }, 1000);
+  }, 800);
   addClickToHoleWhereMoleIs(mole);
 }
 
-//Countdown the time
 function time() {
   timerLimit--;
   const timer = $timer.html(timerLimit);
-  console.log(timerLimit);
   addClickToHoleWhereMoleIs();
 }
 
-//Add a click event on the random mole.
 function addClickToHoleWhereMoleIs(mole) {
   $(mole).one('click', () => {
+    if (true) {
     scoreValue++;
-  console.log(scoreValue);
     $score.html(scoreValue);
-  console.log('Im hit');
-    //Remove the click from hole.
     const removeMole = $(mole).removeClass('mole');
   });
 }
 
 function reset() {
   scoreValue = 0;
-  timerLimit = 6;
-  $timeBoard = $('.time-board');
+  timerLimit = 5;
+  $timeBoard.html('Time: <span class="timer">15</span></div>');
+  $timer = $('.timer');
+  $score = $('.score');
 }
