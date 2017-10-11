@@ -2,19 +2,27 @@ $(setup);
 
 let scoreValue = 0;
 let timerLimit = 11;
-let $timeBoard;
+
 
 function setup() {
+  $timer = $('.timer');
   $holes = $('.hole');
   $timeBoard = $('.time-board');
   $startButton = ('.start');
   $($startButton).on('click', startGame);
+  $($holes).on('click', checkForMole);
 }
 
-function startGame() {
-  $('.start').hide();
-  reset();
-  pickRandomHole();
+function checkForMole(e) {
+  if ($(this).hasClass('mole')) {
+    scoreValue++;
+    console.log(scoreValue);
+    $score.html(scoreValue);
+  } else {
+    scoreValue--;
+    console.log("wasssup");
+    $score.html(scoreValue);
+  }
 }
 
 function pickRandomHole() {
@@ -25,10 +33,14 @@ function pickRandomHole() {
 
 function addMoleToHole(hole) {
   const mole = $(hole).addClass('mole');
+  console.log(mole);
+  timeOut(mole);
+}
+
+function timeOut(mole) {
   time();
   setTimeout(function() {
     $(mole).removeClass('mole');
-    $(mole).off('click');
     if (timerLimit > 0) {
       pickRandomHole();
     } else {
@@ -36,26 +48,17 @@ function addMoleToHole(hole) {
       $('.start').show();
     }
   }, 1000);
-  addClickToHoleWhereMoleIs(mole);
 }
 
 function time() {
   timerLimit--;
   const timer = $timer.html(timerLimit);
-  addClickToHoleWhereMoleIs();
 }
 
-function addClickToHoleWhereMoleIs(mole) {
-  $(mole).on('click', () => {
-    if (true) {
-    scoreValue++;
-    $score.html(scoreValue);
-  } else {
-    scoreValue--;
-    $score.html(scoreValue);
-    console.log(scoreValue);
-  }
-  });
+function startGame() {
+  $('.start').hide();
+  reset();
+  pickRandomHole();
 }
 
 function reset() {

@@ -17,16 +17,19 @@
 
 .score-board {
   padding: 20px;
-  margin: 0px;
 }
 
 button {
   cursor: pointer;
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  border: none;
   background-color: white;
   border-radius: 20px;
-  padding: 5px;
+  padding: 10px;
   border-color: rgb(242, 168, 93);
+  outline: none;
 }
+
 .start {
   padding: 20px;
 }
@@ -52,8 +55,9 @@ button {
 }
 
 .mole {
-  background-color: rgb(242, 168, 93);
-  background-image: url('../images/trump.jpg');
-  background-repeat: none;
-  background-size: contain;
+  background-color: white;
+  background-image: url('../images/trump4.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+
 }
