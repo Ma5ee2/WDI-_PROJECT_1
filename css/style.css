@@ -3,12 +3,32 @@
   font-family: 'Modak', cursive;
   font-size: 30px;
   text-align: center;
-  color: rgb(242, 168, 93);
+  color: rgb(246, 142, 39);
 }
 
 .heading {
   margin: 20px;
   font-size: 100px;
+}
+
+.heading:before,
+.heading:after {
+ background-color: rgb(246, 142, 39);
+ content: "";
+ display: inline-block;
+ height: 5px;
+ position: relative;
+ vertical-align: middle;
+ width: 50%;
+ border-radius: 20px;
+}
+.heading:before {
+ right: 0.2em;
+ margin-left: -50%;
+}
+.heading:after {
+ left: 0.2em;
+ margin-right: -50%;
 }
 
 .time-limit {
@@ -17,7 +37,7 @@
 
 .time-board {
   margin: 20px;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 .score-board {
@@ -34,7 +54,7 @@ button {
   background-color: white;
   border-radius: 20px;
   padding: 10px;
-  border-color: rgb(242, 168, 93);
+  border-color: rgb(246, 142, 39);
   outline: none;
 }
 
@@ -45,9 +65,9 @@ button {
 .grid {
   cursor: url(https://s29.postimg.org/iob23uo2v/hammerpngsmall.png), auto;
   margin: auto;
-  height: 300px;
-  width: 300px;
-  background-color: rgb(242, 168, 93);
+  height: 380px;
+  width: 700px;
+  background-color: rgb(246, 142, 39);
   border-radius: 20px;
   background-color: white;
 }
@@ -58,14 +78,36 @@ button {
   width: 100px;
   height: 100px;
   border-radius: 20px;
-  border: 1px solid rgb(242, 168, 93);
+  border: 1px solid rgb(246, 142, 39);
   padding: 1px;
 }
 
+.ga {
+  float: left;
+  font-family: 'Modak', cursive;
+  font-size: 20px;
+  padding-left: 120px;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.masee {
+  float: right;
+  font-family: 'Modak', cursive;
+  font-size: 20px;
+  padding-right: 120px;
+  font-family: 'Ubuntu', sans-serif;
+}
 .mole {
   background-color: white;
+  background-image: url('../images/trump5.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.dead-mole:active {
+  cursor: url(https://s21.postimg.org/fz5il1ah3/hammerpngdown.png) 0 0, auto;
   background-image: url('../images/trump4.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-
+  background-color: white;
 }
