@@ -12,7 +12,7 @@ function setup() {
   $startButton = $('.start');
   $($startButton).on('click', startGame);
   $($holes).on('click', checkForMole);
-  // $(window).on('load', audio);
+  $(window).on('load', audio);
 }
 
 function checkForMole(e) {
@@ -35,7 +35,6 @@ function pickRandomHole() {
 
 function addMoleToHole(hole) {
   const mole = $(hole).addClass('mole');
-  //added deadMole-----------------------------
   const hitMole = $(hole).addClass('dead-mole');
   timeOut(mole, hitMole);
 }
