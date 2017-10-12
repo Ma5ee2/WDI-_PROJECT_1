@@ -1,8 +1,7 @@
 $(setup);
 
 let scoreValue = 0;
-let timerLimit = 11;
-
+let timerLimit = 21;
 
 function setup() {
   $timer = $('.timer');
@@ -49,6 +48,7 @@ function timeOut(mole, hitMole) {
     } else {
       $timeBoard.html('Game over');
       $('.start').show();
+      $($holes).off('click');
     }
   }, 1000);
 }
@@ -65,16 +65,16 @@ function audio() {
 
 function startGame() {
   $('.start').hide();
+  $($holes).on('click', checkForMole);
   reset();
   pickRandomHole();
 }
 
 function reset() {
   scoreValue = 0;
-  timerLimit = 11;
+  timerLimit = 21;
   $holes = $('.hole');
-  $timeBoard.html('Time: <span class="timer">15</span></div>');
+  $timeBoard.html('Time: <span class="timer">20</span></div>');
   $timer = $('.timer');
   $score = $('.score');
-  $timeBoard = $('.time-board');
 }
