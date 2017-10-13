@@ -50,7 +50,7 @@ function timeOut(mole, hitMole) {
       $('.start').show();
       $($holes).off('click');
     }
-  }, 1000);
+  }, 900);
 }
 
 function time() {
